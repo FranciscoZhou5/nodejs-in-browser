@@ -18,7 +18,7 @@ const ANSIConverter = new ANSIToHTML();
 export default function Editor() {
   const [code, setCode] = useState(initialCode);
   const [isRunning, setIsRunning] = useState(false);
-  const [output, setOutput] = useState([]);
+  const [output, setOutput] = useState<string[]>([]);
 
   async function handleEvaluteCode() {
     setIsRunning(true);
