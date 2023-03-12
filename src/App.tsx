@@ -1,13 +1,18 @@
-import CodeEditor from "@uiw/react-textarea-code-editor";
+import { createPortal } from "react-dom";
 import Editor from "./components/Editor";
 import Header from "./components/Header";
+import MobileAlert from "./components/MobileAlert";
 
 export default function App() {
   return (
-    <div>
+    <>
       <Header />
 
-      <Editor />
-    </div>
+      {createPortal(<MobileAlert />, document.body)}
+
+      <main>
+        <Editor />
+      </main>
+    </>
   );
 }

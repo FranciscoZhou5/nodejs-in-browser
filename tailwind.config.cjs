@@ -10,11 +10,13 @@ module.exports = {
       backgroundColor: {
         primary: "#171620",
         secundary: "#21202e",
+
+        black: "#0e0d13",
       },
       textColor: {
         weak: "#b3b3b3",
       },
     },
   },
-  plugins: [],
+  plugins: [require("tailwindcss-radix"), require("tailwind-scrollbar")],
 };
