@@ -1,6 +1,8 @@
 import { useState } from "react";
 import CodeEditor from "@uiw/react-textarea-code-editor";
 import ANSIToHTML from "ansi-to-html";
+import { Spinner } from "phosphor-react";
+
 import { getWebContainerInstance } from "../../lib/web-container";
 
 const initialCode = [
@@ -105,10 +107,16 @@ export default function Editor() {
           <span className="text-weak text-sm"> Click on run to evalute the code. </span>
         )}
 
-        <div className="absolute right-4">
-          <button onClick={handleEvaluteCode} className="bg-[#9448bc] font-bold text-sm rounded-md px-2 h-9">
-            Run code
-          </button>
+        <div className="absolute right-4 top-4">
+          {isRunning ? (
+            <button className="bg-[#9448bc] font-bold text-sm rounded-md px-2 h-9 flex items-center gap-1">
+              <Spinner weight="bold" color="#FFF" size={14} className="animate-spin" /> Stop running
+            </button>
+          ) : (
+            <button onClick={handleEvaluteCode} className="bg-[#9448bc] font-bold text-sm rounded-md px-2 h-9">
+              Run code
+            </button>
+          )}
         </div>
       </div>
     </div>
